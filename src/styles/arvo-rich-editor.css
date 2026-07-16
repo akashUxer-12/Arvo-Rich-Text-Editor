@@ -291,6 +291,16 @@ button, select, input { font: inherit; }
   border-radius: 5px;
 }
 
+.arvo-highlight-color-input {
+  background: repeating-linear-gradient(
+    135deg,
+    #fff8b8,
+    #fff8b8 5px,
+    #fff 5px,
+    #fff 10px
+  );
+}
+
 .arvo-table-controls {
   background: #f4f7fc;
 }
@@ -480,14 +490,26 @@ button, select, input { font: inherit; }
 
 .arvo-bubble-toolbar {
   display: flex;
+  align-items: center;
   gap: 2px;
   padding: 4px;
   background: #20242c;
   border-radius: 7px;
   box-shadow: 0 6px 18px rgb(0 0 0 / 20%);
+  z-index: 1000;
 }
 
 .arvo-bubble-toolbar button { color: #fff; }
+
+.arvo-bubble-color-input {
+  width: 28px;
+  height: 28px;
+  padding: 3px;
+  border: 0;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
 
 .arvo-suggestion-menu {
   width: 280px;

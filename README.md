@@ -101,6 +101,7 @@ corresponding heading:
 - Underline
 - Strikethrough
 - Highlight
+- Selectable highlight background color
 - Text color
 - Tokenized font sizes
 - Font-family foundation
@@ -145,11 +146,15 @@ provides:
 - Italic
 - Underline
 - Highlight
+- Highlight background color picker
 - Insert, edit, or remove link
 
 It stays hidden for collapsed selections, read-only content, and selected image
-nodes. All bubble-menu actions are also available through persistent controls or
-keyboard shortcuts so the contextual toolbar is not the only access path.
+nodes. The toolbar is portaled to the document body and uses automatic flipping
+and viewport shifting, preventing it from being clipped when a selection is near
+the first line or an editor edge. All bubble-menu actions are also available
+through persistent controls or keyboard shortcuts so the contextual toolbar is
+not the only access path.
 
 ### Slash-command palette
 

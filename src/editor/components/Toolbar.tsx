@@ -172,8 +172,18 @@ export function Toolbar({
         <input
           className="arvo-color-input"
           type="color"
+          defaultValue="#1c2024"
           aria-label="Text color"
+          title="Text color"
           onChange={(event) => editor.chain().focus().setColor(event.target.value).run()}
+        />
+        <input
+          className="arvo-color-input arvo-highlight-color-input"
+          type="color"
+          defaultValue="#fff59d"
+          aria-label="Highlight background color"
+          title="Highlight background color"
+          onChange={(event) => editor.chain().focus().setHighlight({ color: event.target.value }).run()}
         />
         <ToolbarButton label="Clear formatting" onPress={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}><RemoveFormatting /></ToolbarButton>
       </div>
