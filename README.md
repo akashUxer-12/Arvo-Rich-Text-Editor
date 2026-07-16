@@ -243,6 +243,19 @@ Images can be added through:
 - Clipboard paste
 - Drag and drop
 
+Selecting an image opens an Arvo contextual image toolbar with:
+
+- Left, center, and right positioning
+- Width resizing from 20% to 100%
+- Caption editing
+- Alternative-text editing
+- Optional clickable-image hyperlink
+- Image deletion
+
+Newly uploaded images are aligned left by default. Image presentation is stored
+with the image node through `width`, `alignment`, `caption`, `alt`, and `href`
+attributes, so it persists in versioned JSON and governed HTML output.
+
 Supported demo MIME types are PNG, JPEG, WebP, and GIF. The upload provider
 receives progress callbacks and returns an asset ID, URL, filename, MIME type,
 size, and optional alt text. The returned image becomes a structured image node.

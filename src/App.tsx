@@ -18,6 +18,7 @@ type ExampleId =
   | "smart"
   | "planning"
   | "table"
+  | "image"
   | "comment"
   | "task"
   | "release"
@@ -211,6 +212,47 @@ const examples: Array<{
               },
             ],
           },
+        ],
+      },
+    },
+  },
+  {
+    id: "image",
+    name: "Image authoring",
+    summary: "Upload, select, resize, position, caption, describe, and link an image.",
+    features: [
+      "Select the image to open its contextual image toolbar.",
+      "Resize it from 20% to 100% and align it left, center, or right.",
+      "Add a caption and accessible alternative text, or make the image clickable with a hyperlink.",
+      "Upload another image from the formatting toolbar, by pasting, or with drag and drop.",
+    ],
+    config: {
+      variant: "advanced",
+      maxLength: 30000,
+      enabled: ["Image upload", "Resize", "Alignment", "Caption", "Alt text", "Image hyperlink"],
+      features: { hasTables: false, hasAttachments: false, hasAI: false },
+    },
+    document: {
+      schema: "arvo-rich-editor",
+      schemaVersion: "1.0.0",
+      document: {
+        type: "doc",
+        content: [
+          { type: "heading", attrs: { level: 1 }, content: [{ type: "text", text: "Image authoring" }] },
+          { type: "paragraph", content: [{ type: "text", text: "Click the image below to explore every image-specific control." }] },
+          {
+            type: "image",
+            attrs: {
+              src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+              alt: "Laptop displaying code on a desk",
+              title: "Arvo image authoring example",
+              width: "60%",
+              alignment: "left",
+              caption: "A selectable image with a stored caption, alignment, and width.",
+              href: null,
+            },
+          },
+          { type: "paragraph", content: [{ type: "text", text: "Images are aligned left by default when uploaded." }] },
         ],
       },
     },

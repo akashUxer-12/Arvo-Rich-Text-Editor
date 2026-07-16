@@ -9,7 +9,6 @@ import Color from "@tiptap/extension-color";
 import FontFamily from "@tiptap/extension-font-family";
 import TextAlign from "@tiptap/extension-text-align";
 import Link from "@tiptap/extension-link";
-import Image from "@tiptap/extension-image";
 import { Table } from "@tiptap/extension-table";
 import TableRow from "@tiptap/extension-table-row";
 import TableHeader from "@tiptap/extension-table-header";
@@ -38,11 +37,13 @@ import { FontSize } from "./extensions/FontSize";
 import { Attachment } from "./extensions/Attachment";
 import { CustomShortcuts } from "./extensions/CustomShortcuts";
 import { LinkShortcut } from "./extensions/LinkShortcut";
+import { ArvoImage } from "./extensions/ArvoImage";
 import { createTagMention, createUserMention } from "./extensions/createEntityMention";
 import { SlashCommands } from "./extensions/SlashCommands";
 import { Toolbar } from "./components/Toolbar";
 import { BubbleToolbar } from "./components/BubbleToolbar";
 import { TableControls } from "./components/TableControls";
+import { ImageControls } from "./components/ImageControls";
 
 export interface ArvoRichEditorProps {
   value: ArvoEditorDocument;
@@ -220,9 +221,8 @@ export function ArvoRichEditor({
         protocols: ["http", "https", "mailto"],
         HTMLAttributes: { rel: "noopener noreferrer", target: "_blank" },
       }),
-      Image.configure({
+      ArvoImage.configure({
         allowBase64: false,
-        HTMLAttributes: { class: "arvo-editor-image" },
       }),
       Table.configure({ resizable: true }),
       TableRow,
@@ -449,6 +449,7 @@ export function ArvoRichEditor({
       )}
 
       <TableControls editor={editor} />
+      {!isReadOnly && <ImageControls editor={editor} />}
 
       <div className="arvo-editor-surface">
         {features.hasBubbleToolbar && !isReadOnly && (
