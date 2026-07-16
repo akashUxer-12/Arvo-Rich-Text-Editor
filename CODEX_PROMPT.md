@@ -20,6 +20,12 @@ Use this repository as the baseline for Arvo Rich Editor.
 8. Do not add toolbar actions that are unavailable by keyboard.
 9. Sanitize imported content and validate it again on the server.
 10. Add tests for every new command, node, mark, provider and migration.
+11. Product code imports the production entry from `src/editor/index.ts`; it
+    must not import the full `ArvoRichEditor.tsx` implementation directly.
+12. Preserve the lazy boundary between `ArvoBasicEditor` and the full editor.
+    Do not add advanced extension imports to the basic editor.
+13. Every production build must start from a clean `dist` directory and keep
+    individual client chunks below the approved bundle budget.
 
 ## Next production tasks
 

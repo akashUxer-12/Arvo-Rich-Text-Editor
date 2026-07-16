@@ -39,6 +39,59 @@ Keeping Tiptap behind the Arvo abstraction provides a consistent product API,
 prevents incompatible schemas, controls licensing, and preserves a practical
 path to migrate the underlying engine later.
 
+## Production bundle architecture
+
+The supported production entry point is:
+
+```ts
+import { ArvoRichEditor } from "./editor";
+```
+
+This entry is a lazy preset router rather than the all-features implementation.
+It creates separate client chunks for the lightweight and full editors:
+
+- `variant="basic"` loads `ArvoBasicEditor`, containing paragraphs, bold,
+  italic, underline, strikethrough, bullet and numbered lists, links,
+  undo/redo, placeholder, character limit, sanitization, and autosave.
+- `variant="standard"` or `variant="advanced"` loads the full editor only when
+  that editor is first rendered.
+- Explicitly requesting an advanced feature from a basic configuration routes
+  to the full editor so capabilities are never silently omitted.
+
+The basic component does not import tables, images, attachments, Markdown,
+mentions, tags, slash commands, Tippy, or the advanced toolbar. The production
+build emits the basic component as a small independent feature chunk, while the
+complete editor is isolated in its own lazy chunk. Products using comment fields
+therefore do not initialize or execute the advanced editor.
+
+Applications must not import `ArvoRichEditor.tsx` directly because that bypasses
+the production preset router and eagerly selects the full implementation.
+
+The build removes the previous output directory before compiling. This prevents
+obsolete demo bundles from being accidentally included in deployment archives.
+
+The build also enforces gzip budgets for the preset chunks. At the time this
+architecture was introduced, the emitted component-specific chunks measured
+approximately 1.7 KiB gzip for `ArvoBasicEditor` and 39 KiB gzip for the full
+`ArvoRichEditor` implementation. Shared React, Tiptap, and application chunks
+are measured separately by the consuming application's performance budget.
+
+### Runtime performance rules
+
+- Use `basic` for comments, notes, and short descriptions.
+- Mount editors only when their containing surface is visible.
+- Do not initialize collaborative, AI, table, media, or Markdown behavior for a
+  basic editor.
+- Keep README content and loaded examples in the demo application; they are not
+  exported by the editor entry point.
+- Keep canonical JSON controlled and avoid serializing HTML on every keystroke.
+- Debounce persistence and cancel stale network requests.
+- Serve uploaded images at display-appropriate dimensions.
+- Set performance budgets for initial JavaScript, editor initialization, typing
+  latency, paste latency, and large-document interaction.
+- Treat the full editor as an on-demand capability, not an application-shell
+  dependency.
+
 ## Run locally
 
 Requirements:

@@ -622,6 +622,38 @@ button, select, input { font: inherit; }
   border-radius: 8px;
 }
 
+.arvo-basic-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 6px;
+  border-bottom: 1px solid #e2e4e7;
+  background: #fbfbfc;
+}
+.arvo-basic-toolbar button {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+}
+.arvo-basic-toolbar button:hover,
+.arvo-basic-toolbar button:focus-visible,
+.arvo-basic-toolbar button[aria-pressed="true"] { background: #e8edf8; }
+.arvo-basic-toolbar button:disabled { opacity: .35; cursor: not-allowed; }
+.arvo-basic-toolbar svg { width: 16px; height: 16px; }
+.arvo-basic-toolbar-spacer { flex: 1; }
+.arvo-basic-footer {
+  padding: 6px 10px;
+  border-top: 1px solid #e2e4e7;
+  color: #666d78;
+  font-size: 11px;
+  text-align: end;
+}
+
 @media (max-width: 760px) {
   .demo-header,
   .demo-panel-heading,
