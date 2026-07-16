@@ -1,5 +1,7 @@
 import Image from "@tiptap/extension-image";
 import { mergeAttributes } from "@tiptap/core";
+import { ReactNodeViewRenderer } from "@tiptap/react";
+import { ImageNodeView } from "../components/ImageNodeView";
 
 function getImageElement(element: HTMLElement): HTMLImageElement | null {
   return element instanceof HTMLImageElement
@@ -8,6 +10,10 @@ function getImageElement(element: HTMLElement): HTMLImageElement | null {
 }
 
 export const ArvoImage = Image.extend({
+  addNodeView() {
+    return ReactNodeViewRenderer(ImageNodeView);
+  },
+
   addAttributes() {
     return {
       src: {

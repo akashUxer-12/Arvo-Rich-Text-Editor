@@ -305,47 +305,6 @@ button, select, input { font: inherit; }
   background: #f4f7fc;
 }
 
-.arvo-image-controls {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  padding: 8px;
-  border-bottom: 1px solid #d7e2f4;
-  background: #f4f7fc;
-}
-
-.arvo-image-control-group { display: flex; gap: 3px; }
-.arvo-image-controls button {
-  width: 32px;
-  height: 32px;
-  display: inline-grid;
-  place-items: center;
-  border: 1px solid transparent;
-  border-radius: 5px;
-  background: transparent;
-  cursor: pointer;
-}
-.arvo-image-controls button:hover,
-.arvo-image-controls button:focus-visible,
-.arvo-image-controls button[aria-pressed="true"] {
-  border-color: #9eb5df;
-  background: #e2eafa;
-}
-.arvo-image-controls svg { width: 17px; height: 17px; }
-.arvo-image-size-control,
-.arvo-image-text-control { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
-.arvo-image-size-control input { width: 110px; }
-.arvo-image-size-control output { min-width: 34px; color: #5b616e; }
-.arvo-image-text-control input {
-  min-height: 32px;
-  width: 170px;
-  padding: 5px 8px;
-  border: 1px solid #c9cdd2;
-  border-radius: 5px;
-  background: #fff;
-}
-
 .arvo-table-controls button,
 .arvo-export-actions button {
   border: 1px solid #c9cdd2;
@@ -502,6 +461,7 @@ button, select, input { font: inherit; }
 .arvo-image-figure[data-align="center"] { margin-inline: auto; }
 .arvo-image-figure[data-align="right"] { margin-inline: auto 0; }
 .arvo-image-figure.ProseMirror-selectednode,
+.arvo-image-figure.is-selected,
 .ProseMirror-selectednode .arvo-image-figure { outline: 2px solid #2f65d9; outline-offset: 3px; }
 .arvo-image-link { display: block; }
 .arvo-editor-image {
@@ -522,6 +482,22 @@ button, select, input { font: inherit; }
   text-align: center;
 }
 .arvo-image-caption.is-empty { display: none; }
+.arvo-image-figure.is-selected { position: relative; }
+.arvo-image-resize-handle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #2f65d9;
+  box-shadow: 0 0 0 1px #2f65d9;
+  z-index: 2;
+}
+.arvo-image-resize-handle--nw { top: -7px; left: -7px; cursor: nwse-resize; }
+.arvo-image-resize-handle--ne { top: -7px; right: -7px; cursor: nesw-resize; }
+.arvo-image-resize-handle--sw { bottom: -7px; left: -7px; cursor: nesw-resize; }
+.arvo-image-resize-handle--se { right: -7px; bottom: -7px; cursor: nwse-resize; }
 
 .arvo-entity {
   border-radius: 4px;
@@ -564,6 +540,17 @@ button, select, input { font: inherit; }
 }
 
 .arvo-bubble-toolbar button { color: #fff; }
+.arvo-bubble-toolbar .arvo-bubble-text-button {
+  width: auto;
+  padding-inline: 8px;
+  font-size: 12px;
+}
+.arvo-bubble-separator {
+  width: 1px;
+  height: 20px;
+  margin-inline: 3px;
+  background: #59616d;
+}
 
 .arvo-bubble-color-input {
   width: 28px;

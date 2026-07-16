@@ -250,11 +250,20 @@ Images can be added through:
 Selecting an image opens an Arvo contextual image toolbar with:
 
 - Left, center, and right positioning
-- Width resizing from 20% to 100%
 - Caption editing
 - Alternative-text editing
 - Optional clickable-image hyperlink
 - Image deletion
+
+The image toolbar uses the same floating contextual surface as text selection;
+it does not create a separate editor row. Text selection shows formatting and
+text alignment, while image selection replaces those commands with image
+alignment, Caption, Alt text, Link, and Delete. Alignment is intentionally
+removed from the fixed toolbar to avoid duplicated controls.
+
+Selected images display four resize handles directly on their corners. Dragging
+a corner resizes the image between 20% and 100% of the available editor width.
+This direct manipulation replaces the earlier toolbar slider.
 
 Newly uploaded images are aligned left by default. Image presentation is stored
 with the image node through `width`, `alignment`, `caption`, `alt`, and `href`

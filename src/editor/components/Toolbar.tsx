@@ -17,9 +17,6 @@ import {
   ImagePlus,
   Table2,
   Paperclip,
-  AlignLeft,
-  AlignCenter,
-  AlignRight,
   Highlighter,
   Sparkles,
   RemoveFormatting,
@@ -194,12 +191,6 @@ export function Toolbar({
         <ToolbarButton label="Task list" isActive={editor.isActive("taskList")} onPress={() => editor.chain().focus().toggleTaskList().run()}><ListTodo /></ToolbarButton>
         <ToolbarButton label="Quote" isActive={editor.isActive("blockquote")} onPress={() => editor.chain().focus().toggleBlockquote().run()}><Quote /></ToolbarButton>
         <ToolbarButton label="Code block" isActive={editor.isActive("codeBlock")} onPress={() => editor.chain().focus().toggleCodeBlock().run()}><Code2 /></ToolbarButton>
-      </div>
-
-      <div className="arvo-toolbar-group" aria-label="Alignment">
-        <ToolbarButton label="Align left" isActive={editor.isActive({ textAlign: "left" })} onPress={() => editor.chain().focus().setTextAlign("left").run()}><AlignLeft /></ToolbarButton>
-        <ToolbarButton label="Align center" isActive={editor.isActive({ textAlign: "center" })} onPress={() => editor.chain().focus().setTextAlign("center").run()}><AlignCenter /></ToolbarButton>
-        <ToolbarButton label="Align right" isActive={editor.isActive({ textAlign: "right" })} onPress={() => editor.chain().focus().setTextAlign("right").run()}><AlignRight /></ToolbarButton>
       </div>
 
       <div className="arvo-toolbar-group" aria-label="Insert">

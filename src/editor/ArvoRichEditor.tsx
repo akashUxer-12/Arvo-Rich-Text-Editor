@@ -43,7 +43,6 @@ import { SlashCommands } from "./extensions/SlashCommands";
 import { Toolbar } from "./components/Toolbar";
 import { BubbleToolbar } from "./components/BubbleToolbar";
 import { TableControls } from "./components/TableControls";
-import { ImageControls } from "./components/ImageControls";
 
 export interface ArvoRichEditorProps {
   value: ArvoEditorDocument;
@@ -449,7 +448,6 @@ export function ArvoRichEditor({
       )}
 
       <TableControls editor={editor} />
-      {!isReadOnly && <ImageControls editor={editor} />}
 
       <div className="arvo-editor-surface">
         {features.hasBubbleToolbar && !isReadOnly && (
