@@ -81,6 +81,10 @@ npm run preview
 - Attachments
 - Structured mentions and tags
 
+The Playground starts with an empty paragraph and displays its guidance as a
+true editor placeholder. The guidance disappears automatically when the user
+starts typing and is not stored in the document JSON.
+
 Heading shortcuts follow standard Markdown input rules. At the beginning of a
 block, typing one to six hash characters followed by Space creates the
 corresponding heading:

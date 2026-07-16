@@ -31,20 +31,7 @@ const emptyDocument: ArvoEditorDocument = {
   document: {
     type: "doc",
     content: [
-      {
-        type: "heading",
-        attrs: { level: 1 },
-        content: [{ type: "text", text: "Arvo Rich Editor" }],
-      },
-      {
-        type: "paragraph",
-        content: [
-          {
-            type: "text",
-            text: "Select text for the bubble toolbar, type / for commands, @ for mentions, and # for tags.",
-          },
-        ],
-      },
+      { type: "paragraph" },
     ],
   },
 };
@@ -564,7 +551,7 @@ export default function App() {
             onChange={setPlaygroundDocument}
             variant="advanced"
             isReadOnly={readOnly}
-            placeholder="Start writing, or type / for commands"
+            placeholder="Select text for the bubble toolbar, type / for commands, @ for mentions, and # for tags."
             maxLength={30000}
             autosave={{ isEnabled: true, delay: 800, storageKey: "arvo-rich-editor-demo" }}
             providers={editorProviders}
