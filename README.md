@@ -117,6 +117,10 @@ npm run build
 npm run preview
 ```
 
+The default scripts use standard Next.js and produce the `.next` output expected by Vercel. Connect the GitHub repository in Vercel and keep the detected framework preset as **Next.js**; no custom output directory is required.
+
+The repository also retains its ChatGPT Sites/Vinext workflow through `npm run build:sites`, `npm run dev:sites`, and `npm run preview:sites`.
+
 ## Implemented functionality
 
 ### Document structure

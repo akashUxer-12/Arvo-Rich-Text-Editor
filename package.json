@@ -4,11 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "prebuild": "node scripts/clean-build.mjs",
-    "postbuild": "node scripts/check-editor-bundles.mjs",
-    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
-    "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
-    "preview": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
+    "predev": "node scripts/sync-readme.mjs",
+    "prebuild": "node scripts/sync-readme.mjs",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "preview": "next start",
+    "build:sites": "node scripts/sync-readme.mjs && node scripts/clean-build.mjs && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build && node scripts/check-editor-bundles.mjs",
+    "dev:sites": "node scripts/sync-readme.mjs && WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
+    "preview:sites": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
     "lint": "eslint ."
   },
   "dependencies": {

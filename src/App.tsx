@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { BookOpen, Eye, EyeOff, PanelTop, Play, Sparkles } from "lucide-react";
-import readmeContent from "../README.md?raw";
+import { readmeContent } from "./generated/readmeContent";
 import { ProductionArvoRichEditor as ArvoRichEditor } from "./editor/ProductionArvoRichEditor";
 import { markdownToArvoDocument } from "./editor/markdownToDocument";
 import type { ArvoEditorDocument } from "./editor/types";
